@@ -13,16 +13,6 @@ app.get('/', (req, res) => {
     res.send('API Running...');
 });
 
-app.get('/test-user', async (req, res) => {
-    const user = await User.create({
-        name: "Ali",
-        email: "ali@test.com",
-        password: "123456"
-    });
-
-    res.json(user);
-});
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
