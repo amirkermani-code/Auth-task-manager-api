@@ -3,6 +3,7 @@ const express = require('express');
 const connectDB = require('./src/config/db');
 const User = require('./src/models/User');
 const authRoutes = require('./src/routes/authRoutes');
+const taskRoutes = require('./src/routes/taskRoutes');
 
 const app = express();
 
@@ -11,6 +12,8 @@ connectDB();
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+
+app.use('/api/tasks', taskRoutes);
 
 app.get('/', (req, res) => {
     res.send('API Running...');
